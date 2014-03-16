@@ -1,0 +1,10 @@
+--- libXcm-0.5.3/src/Makefile.am.orig	2013-04-25 08:28:38.000000000 +0200
++++ libXcm-0.5.3/src/Makefile.am	2014-03-16 08:10:39.980913987 +0100
+@@ -19,6 +19,7 @@
+ endif
+ libXcm_la_SOURCES = XcmDummy.c
+ 
++libXcmEDID_la_LIBADD = -lm
+ libXcmX11_la_LIBADD  = \
+ 			libXcmEDID.la
+ libXcm_la_LIBADD  = \
