@@ -6,7 +6,7 @@ Summary:	X Color Management library
 Summary(pl.UTF-8):	Biblioteka X Color Management (zarządzanie kolorami w X)
 Name:		libXcm
 Version:	0.5.3
-Release:	1
+Release:	2
 License:	MIT
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/oyranos/%{name}-%{version}.tar.bz2
