@@ -5,14 +5,17 @@
 Summary:	X Color Management library
 Summary(pl.UTF-8):	Biblioteka X Color Management (zarządzanie kolorami w X)
 Name:		libXcm
-Version:	0.5.3
-Release:	2
+Version:	0.5.4
+Release:	1
 License:	MIT
 Group:		Libraries
-Source0:	http://downloads.sourceforge.net/oyranos/%{name}-%{version}.tar.bz2
-# Source0-md5:	c5d293b235f98f0bd211678ffefebc4c
+#Source0Download: https://github.com/oyranos-cms/libxcm/releases
+Source0:	https://github.com/oyranos-cms/libxcm/archive/%{version}/libxcm-%{version}.tar.gz
+# Source0-md5:	f9b9d1dd2ac98008bd05c1b19a828150
 Patch0:		%{name}-link.patch
-URL:		http://www.oyranos.org/
+# not working currently (Aug 2023)
+#URL:		http://www.oyranos.org/libxcm
+URL:		https://github.com/oyranos-cms/libxcm
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	libtool
@@ -60,7 +63,7 @@ Static libXcm library.
 Statyczna biblioteka libXcm.
 
 %prep
-%setup -q
+%setup -q -n libxcm-%{version}
 %patch0 -p1
 
 %build
@@ -81,6 +84,8 @@ rm -rf $RPM_BUILD_ROOT
 
 # obsoleted by pkg-config
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libXcm*.la
+# packaged as %doc
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/libXcm
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -90,7 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS COPYING ChangeLog README docs/X_Color_Management.txt
+%doc README.md docs/{AUTHORS.md,COPYING.md,ChangeLog.md,X_Color_Management.md}
 %attr(755,root,root) %{_libdir}/libXcm.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libXcm.so.0
 %attr(755,root,root) %{_libdir}/libXcmDDC.so.*.*.*
