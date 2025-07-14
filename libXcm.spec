@@ -64,7 +64,7 @@ Statyczna biblioteka libXcm.
 
 %prep
 %setup -q -n libxcm-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %{__libtoolize}
